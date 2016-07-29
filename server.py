@@ -37,7 +37,7 @@ class Application(tornado.web.Application):
         ]
 
     settings = dict(
-        cookie_secret="asdsafl.rleknknfkjqweonrkbknoijsdfckjnk 234jn",
+#        cookie_secret="asdsafl.rleknknfkjqweonrkbknoijsdfckjnk 234jn",
         template_path=os.path.join(os.path.dirname(__file__), "templates"),
         static_path=os.path.join(os.path.dirname(__file__), "static"),
         xsrf_cookies=False,
@@ -55,9 +55,15 @@ class SocketHandler(tornado.websocket.WebSocketHandler):
   def open(self):
     logging.info('new connection')
 
+  def check_xsrf_cookie():
+    pass
+  
+  def check_origin(self, origin):
+    return True
+  
   def on_message(self, message):
-    # print("got message")
-    # print (message)
+    print("got message")
+    #    print (message)
     image = Image.open(BytesIO(message))
     cv_image = numpy.array(image)
     self.process(cv_image)
@@ -110,6 +116,7 @@ class TrainHandler(tornado.web.RequestHandler):
 
 class PredictHandler(SocketHandler):
   def process(self, cv_image):
+    logging.info("PredictHandler process()")
     result = opencv.predict(cv_image)
     if result: 
       self.write_message(json.dumps(result))

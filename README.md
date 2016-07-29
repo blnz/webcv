@@ -45,7 +45,7 @@ Make sure the dependencies are met.
 * [Peewee](https://github.com/coleifer/peewee)
 * [scikit-learn](http://scikit-learn.org/stable/) (for running the crossvalidation)
 
-Create the database by issuing the following in the data folder `sqlite3 images.db < ../db/create_db.sql`.
+Create the database by issuing the following in the data folder `sqlite3 images.db < ../db/create_db.sql``.
 
 Download the [AT&T face database](http://www.cl.cam.ac.uk/research/dtg/attarchive/facedatabase.html) and extract it to `data/images` before the server is started. This is needed to build the initial prediction model.
 
@@ -56,5 +56,6 @@ Download the [AT&T face database](http://www.cl.cam.ac.uk/research/dtg/attarchiv
 
 Copy `haarcascade_frontalface_alt.xml` from `<path to opencv source>/data/haarcascades/` to the data folder.
 
-Run with `python server.py` and browse to http://localhost:8888 when the model has been trained.
+It re-installs the image and retrians the model, every time on startup.
+
 
