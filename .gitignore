@@ -1,3 +1,5 @@
+node_modules
+build
 tags
 *.mdl
 *.swo
@@ -5,3 +7,4 @@ tags
 *.swn
 *.swm
 *.pyc
+*.*~
