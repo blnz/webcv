@@ -9,9 +9,9 @@ import os.path
 import uuid
 from PIL import Image
 import time
-import aiohttp
+# import aiohttp
 from tornado.platform.asyncio import AsyncIOMainLoop
-import asyncio
+# import asyncio
 
 
 from io import StringIO

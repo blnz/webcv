@@ -103,6 +103,7 @@ def predict(cv_image):
     #model = cv2.createEigenFaceRecognizer()
     model.load(MODEL_FILE)
     prediction = model.predict(resized)
+    logging.info(prediction)
     result = {
       'face': {
         'name': Label.get(Label.id == prediction[0]).name,

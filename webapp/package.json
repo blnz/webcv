@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Sample project that uses React, Redux and material-ui for presentation, python webRTC, websockets, openCV for image classification",
   "scripts": {
-    "start": "echo starting dev server** && python server.py &  node ./server.js --progress --inline --colors",
+    "start": "node ./server.js --progress --inline",
     "build": "echo building production webpack && webpack --config webpack-production.config.js --progress --colors",
     "lint": "eslint src && echo \"eslint: no lint errors\""
   },
