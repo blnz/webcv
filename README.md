@@ -36,26 +36,10 @@ If we can't get a reliable prediction (10 consecutive frames that contains a fac
 
 Running it
 ----------
-Make sure the dependencies are met.
 
-* [SQLite](http://www.sqlite.org/)
-* [OpenCV](http://opencv.org) with python bindings (I'm using the trunk version)
-* [Tornado](http://www.tornadoweb.org)
-* [PIL](http://www.pythonware.com/products/pil/)
-* [Peewee](https://github.com/coleifer/peewee)
-* [scikit-learn](http://scikit-learn.org/stable/) (for running the crossvalidation)
-
-Create the database by issuing the following in the data folder `sqlite3 images.db < ../db/create_db.sql``.
-
-Download the [AT&T face database](http://www.cl.cam.ac.uk/research/dtg/attarchive/facedatabase.html) and extract it to `data/images` before the server is started. This is needed to build the initial prediction model.
-
-    cd data
-    wget http://www.cl.cam.ac.uk/Research/DTG/attarchive/pub/data/att_faces.tar.Z
-    tar zxvf att_faces.tar.Z
-    mv att_faces images
-
-Copy `haarcascade_frontalface_alt.xml` from `<path to opencv source>/data/haarcascades/` to the data folder.
+docker-compose up
 
 It re-installs the image and retrians the model, every time on startup.
 
+browse to localhost:3000
 
