@@ -8,7 +8,6 @@ function getNextPageUrl(response) {
 
 const API_ROOT = `${window.location.protocol}//${window.location.host}/`    // FIXME
 
-
 // Fetches an API response and normalizes the result JSON according to schema.
 // This makes every API response have the same shape, regardless of how nested it was.
 function callApi(endpoint, schema) {
@@ -51,7 +50,7 @@ then3: which check for a bad HTTP status code
 }
 
 // We use this Normalizr schemas to transform API responses from a nested form
-// to a flat form where repos and users are placed in `entities`, and nested
+// to a flatter form where repos and users are placed in `entities`, and nested
 // JSON objects are replaced with their IDs. This is very convenient for
 // consumption by reducers, because we can easily build a normalized tree
 // and keep it updated as we fetch more data.
@@ -138,7 +137,6 @@ export default store => next => action => {
   }
 
   function actionWith(data) {
-    console.log("AAA ActionWith() : ", data)
     const finalAction = Object.assign({}, action, data)
     delete finalAction[CALL_API]
     return finalAction

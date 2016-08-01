@@ -2,7 +2,7 @@
 var config = {
   local: {
     mode: 'local',
-    port: 3000
+    port: 4000
   },
   staging: {
     mode: 'staging',

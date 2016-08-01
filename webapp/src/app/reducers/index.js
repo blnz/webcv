@@ -5,7 +5,6 @@ import { routerReducer as routing } from 'react-router-redux'   // does magic, I
 import { combineReducers } from 'redux'
 
 // Updates an entity cache in response to any action with response.entities.
-//
 // We count on this guy to populate the initial state via the default argument
 function entities(state = { detected: {}, photos: {}}, action) {
   if (action.response && action.response.entities) {
