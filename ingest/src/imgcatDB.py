@@ -17,7 +17,9 @@ import requests
 from requests.auth import HTTPBasicAuth
 
 import dataLayer
+import pypuzzle
 
+puzzle = pypuzzle.Puzzle()
 
 import shutil
 
@@ -139,11 +141,11 @@ class Image:
         return None
 
     def getFingerprint(self):
-        command = "puzzle-print -l 5 " + self.localThumbFilename()
-        output = subprocess.Popen(["puzzle-print", "-l", "5", self.localThumbFilename()], stdout=subprocess.PIPE).communicate()[0]
-        output = output.strip()[1:-1]
-        print "FINGERPRINT is [" + output + ']'
-        self.data['fingerprint'] = output
+        #        command = "puzzle-print -l 5 " + self.localThumbFilename()
+        #        output = subprocess.Popen(["puzzle-print", "-l", "5", self.localThumbFilename()], stdout=subprocess.PIPE).communicate()[0]
+        vec_1 = puzzle.get_cvec_from_file("file_1.jpg")
+        print "FINGERPRINT is [" + vec_1 + ']'
+        self.data['fingerprint'] = vec_1
         self.persist()
         possibleMatch = dataLayer.findPossibleDuplicate(self.data)
         print "our best match is: "
